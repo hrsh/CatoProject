@@ -4,10 +4,7 @@
 		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
+		<!--<PackageReference Include="IdentityModel" Version="5.0.1" />-->
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />
 	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\Cato.JwtService\Cato.JwtService.csproj" />
-	</ItemGroup>
-
 </Project>

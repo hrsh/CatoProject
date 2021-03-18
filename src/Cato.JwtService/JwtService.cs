@@ -11,31 +11,52 @@ namespace Cato.JwtService
     {
         private readonly string _secretKey = "this_is_not_a_$secre@_key";
 
-        public string Token
+        public string Token()
         {
-            get
+            var descriptor = new SecurityTokenDescriptor
             {
-                var descriptor = new SecurityTokenDescriptor
-                {
-                    Issuer = "jigsaw",
-                    Audience = "jigsaw",
-                    IssuedAt = DateTime.Now,
-                    NotBefore = DateTime.Now,
-                    Expires = DateTime.Now.AddDays(7),
-                    SigningCredentials = new SigningCredentials(
-                        new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(_secretKey)),
-                            SecurityAlgorithms.HmacSha256),
-                    Subject = new ClaimsIdentity(SetIdentityClaims),
-                    Claims = SetClaims
-                };
+                Issuer = "jigsaw",
+                Audience = "jigsaw",
+                IssuedAt = DateTime.Now,
+                NotBefore = DateTime.Now,
+                Expires = DateTime.Now.AddDays(7),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(_secretKey)),
+                        SecurityAlgorithms.HmacSha256),
+                Subject = new ClaimsIdentity(SetIdentityClaims),
+                Claims = SetClaims
+            };
 
-                var handler = new JwtSecurityTokenHandler();
-                var securityToken = handler.CreateToken(descriptor);
-                var jwt = handler.WriteToken(securityToken);
+            var handler = new JwtSecurityTokenHandler();
+            var securityToken = handler.CreateToken(descriptor);
+            var jwt = handler.WriteToken(securityToken);
 
-                return jwt;
-            }
+            return jwt;
+        }
+
+        public string Token(string issuer)
+        {
+            var descriptor = new SecurityTokenDescriptor
+            {
+                Issuer = issuer,
+                Audience = "jigsaw",
+                IssuedAt = DateTime.Now,
+                NotBefore = DateTime.Now,
+                Expires = DateTime.Now.AddDays(7),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(_secretKey)),
+                        SecurityAlgorithms.HmacSha256),
+                Subject = new ClaimsIdentity(SetIdentityClaims),
+                Claims = SetClaims
+            };
+
+            var handler = new JwtSecurityTokenHandler();
+            var securityToken = handler.CreateToken(descriptor);
+            var jwt = handler.WriteToken(securityToken);
+
+            return jwt;
         }
 
         private static IEnumerable<Claim> SetIdentityClaims =>
@@ -43,8 +64,8 @@ namespace Cato.JwtService
             {
                 new Claim(JwtRegisteredClaimNames.Sub, "1081"),
                 new Claim(JwtRegisteredClaimNames.Gender, "male"),
-                new Claim(ClaimTypes.Role, "writer"),
-                new Claim(ClaimTypes.Role, "admin")
+                new Claim(ClaimTypes.Role, "Writer"),
+                new Claim(ClaimTypes.Role, "Admin")
             };
 
         private static Dictionary<string, object> SetClaims =>

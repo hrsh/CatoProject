@@ -2,6 +2,8 @@
 {
     public interface IJwtService
     {
-        string Token { get; }
+        string Token();
+
+        string Token(string issuer);
     }
 }
