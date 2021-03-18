@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cato.Client", "src\Cato.Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cato.Client.Unknown", "src\Cato.Client.Unknown\Cato.Client.Unknown.csproj", "{8957DAD6-E440-4FC2-8902-4CE4831D8BB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cato.JwtService", "src\Cato.JwtService\Cato.JwtService.csproj", "{C79D1457-99C5-4BD7-AC63-0E1B98DED916}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8957DAD6-E440-4FC2-8902-4CE4831D8BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8957DAD6-E440-4FC2-8902-4CE4831D8BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8957DAD6-E440-4FC2-8902-4CE4831D8BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79D1457-99C5-4BD7-AC63-0E1B98DED916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79D1457-99C5-4BD7-AC63-0E1B98DED916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79D1457-99C5-4BD7-AC63-0E1B98DED916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79D1457-99C5-4BD7-AC63-0E1B98DED916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
